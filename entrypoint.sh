@@ -8,6 +8,7 @@ else
   echo "Using templated /etc/logrotate.conf:" | ts "${TS_FORMAT}"
   {
     echo "/logs/${LOGROTATE_FILE_PATTERN:-*.log} {"
+    echo "  su root root"
     echo "  ${LOGROTATE_TRUNCATE:-copytruncate}"
     echo "  ${LOGROTATE_COMPRESS:-nocompress}"
     echo "  rotate ${LOGROTATE_ROTATE:-5}"
